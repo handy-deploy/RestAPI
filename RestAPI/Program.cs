@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
+EnvironmentSettings.FetchEnvironmentVariables();
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
