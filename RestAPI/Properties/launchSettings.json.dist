@@ -9,7 +9,9 @@
       "applicationUrl": "https://localhost:7103;http://localhost:5212",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "POSTGRES_CONNECTION_STRING": "Host=;Database=;Username=;Password="
+        "POSTGRES_CONNECTION_STRING": "Host=;Database=;Username=;Password=",
+        "GITHUB_CLIENT_ID": "",
+        "GITHUB_CLIENT_SECRET": ""
       }
     }
   }

@@ -3,9 +3,9 @@ using LibGit2Sharp;
 
 namespace Domain.Services.GitService;
 
-public class GitService
+public class GitService : IGitService
 {
-    public async Task<Guid> CloneRepository(string repositoryUrl,  CancellationToken cancellationToken)
+    public async Task<Guid> CloneRepository(Guid projectId, string mainBranch, string repositoryUrl, CancellationToken cancellationToken)
     {
         var id = Guid.NewGuid();
 
@@ -13,9 +13,10 @@ public class GitService
         {
             try
             {
-                Repository.Clone(repositoryUrl, $"/tmp/${id}", new CloneOptions
+                Repository.Clone(repositoryUrl, $"projects/", new CloneOptions
                 {
                     Checkout = true,
+                    BranchName = mainBranch,
                     OnProgress = _ => !cancellationToken.IsCancellationRequested,
                     OnTransferProgress = _ =>
                     {
